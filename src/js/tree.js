@@ -9,8 +9,11 @@ export class Tree extends Actor {
     onInitialize(engine) {
         this.graphics.use(Resources.Tree.toSprite())
         this.vel = new Vector(Math.random()*80-120, 0)
-        this.pos = new Vector(0,0)
+        this.pos = new Vector(Math.random() * 255, 300);
         this.on('exitviewport', () => this.resetPosition())
+
+        this.addChild(new Chicken(-50));
+        this.addChild(new Chicken(50));
     }
 
     resetPosition() {
